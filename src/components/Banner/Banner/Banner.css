@@ -1,0 +1,11 @@
+.banner img{
+    height: 550px;
+    width: 100%;
+    position: relative;
+}
+.description{
+    position: absolute;
+    top:200px;
+   
+    
+}
