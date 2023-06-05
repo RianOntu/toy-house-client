@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../assets/toy1.png';
+import logo from '../../assets/toy5.webp';
 import './Header.css'
 import { Link } from 'react-router-dom';
 
@@ -22,6 +22,9 @@ const Header = () => {
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <Link to='/'>Home</Link>
+            </li>
+            <li class="nav-item">
+              <Link to='/blog'>Blog</Link>
             </li>
            
            
