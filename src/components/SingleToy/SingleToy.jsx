@@ -11,7 +11,7 @@ const SingleToy = ({toy}) => {
     <h5 class="card-title">Name:{name}</h5>
     <p class="card-text">Price:{price}</p>
     <p class="card-text">Rating:{rating}</p>
-    <Link className='button' to={`toydetails/${id}`}><a  class="btn btn-primary text-white">View Details</a></Link>
+    <Link className='button' to={`toydetails/${id}`}><a  class="btn btn-danger text-white">View Details</a></Link>
   </div>
 </div>
     );
