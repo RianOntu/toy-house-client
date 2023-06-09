@@ -9,6 +9,7 @@ import Main from './components/Main/Main.jsx';
 import Home from './components/Home/Home.jsx';
 import SingleToyDetails from './components/SingleToyDetails/SingleToyDetails.jsx';
 import AddaToy from './components/AddaToy/AddaToy.jsx';
+import AuthenticationProvider from './components/Providers/AuthenticationProvider.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +36,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AuthenticationProvider>
     <RouterProvider router={router} />
+    </AuthenticationProvider>
   </React.StrictMode>,
 )
