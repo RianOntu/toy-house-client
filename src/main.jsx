@@ -8,6 +8,7 @@ import {
 import Main from './components/Main/Main.jsx';
 import Home from './components/Home/Home.jsx';
 import SingleToyDetails from './components/SingleToyDetails/SingleToyDetails.jsx';
+import AddaToy from './components/AddaToy/AddaToy.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
         element:<SingleToyDetails></SingleToyDetails>,
         loader:({params})=>fetch(`http://localhost:5000/toydetails/${params.id}`)
 
+      },
+      {
+        path:"addatoy",
+        element:<AddaToy></AddaToy>
       }
     ]
   },
