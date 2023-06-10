@@ -14,6 +14,8 @@ import Register from './components/Register/Register.jsx';
 import Login from './components/Login/Login.jsx';
 import AllToys from './components/AllToys/AllToys.jsx';
 import MyToys from './components/MyToys/MyToys.jsx';
+import UpdateToy from './components/UpdateToy/UpdateToy.jsx';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -49,7 +51,12 @@ const router = createBrowserRouter([
       },
       {
         path:"mytoys",
-        element:<MyToys></MyToys>
+        element:<PrivateRoute><MyToys></MyToys></PrivateRoute>
+      },
+      {
+        path:'mytoys/update/:id',
+        element:<UpdateToy></UpdateToy>,
+        loader:({params})=>fetch(`http://localhost:5000/update/${params.id}`)
       }
     ]
   },
