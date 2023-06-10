@@ -34,6 +34,9 @@ const Header = () => {
             <li class="nav-item">
               <Link to='/blog'>Blog</Link>
             </li>
+            <li class="nav-item">
+              <Link to='/alltoys'>All Toys</Link>
+            </li>
             {
               user?<> <li class="nav-item">
               <Link to='/addatoy'>Add A Toy</Link>
@@ -42,6 +45,7 @@ const Header = () => {
             <li class="nav-item">
               <Link to='/mytoys'>My Toys</Link>
             </li>
+           
            
             <li class="nav-item" onClick={handleLogout}>
               <Link to='/logout'>Log Out</Link>
