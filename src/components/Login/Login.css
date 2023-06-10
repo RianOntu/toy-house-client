@@ -10,3 +10,7 @@
 .register{
     color:blue;
 }
+.lock{
+    height:500px;
+    width: 100%;
+}

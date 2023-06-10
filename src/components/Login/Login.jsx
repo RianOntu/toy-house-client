@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import './Login.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthenticationContext } from '../Providers/AuthenticationProvider';
+import loginimg from "../../assets/locki.avif";
 
 
 const Login = () => {
@@ -33,15 +34,17 @@ const handleGoogleSignIn=()=>{
   googleSignIn().then(()=>navigate(from, { replace: true })).catch(error=>console.log(error))
   
 }
-const handleGithubLogin=()=>{
-  githubSignIn().then(()=>navigate(from, { replace: true })).catch(error=>console.log(error))
-  
-}
+
 
 
 
     return (
-        <div className='formpage w-50 mx-auto mt-5'>
+ <div className="container">
+      <div className="row">
+    <div className='col-md-6 mt-5 mb-5'>
+         <img className='lock' src={loginimg} alt="" />
+    </div>
+    <div className='formpage w-50 mx-auto mt-5 mb-5 col-md-6'>
           <p className='text-success text-center'>{success}</p>
           <p className='text-danger text-center'>{error}</p>
             <h1 className='text-center'>Please Login</h1>
@@ -57,7 +60,7 @@ const handleGithubLogin=()=>{
   </div>
   <p>New to this website?Please <Link className='register' to='/register'>Register</Link></p>
  
-  <button type="submit" class="btn btn-primary">Login</button>
+  <button type="submit" class="btn btn-danger">Login</button>
 
 </form>
 <h4 className='text-center'>Or</h4>
@@ -67,13 +70,10 @@ const handleGithubLogin=()=>{
   Sign in with Google
 
   </button>
-  <button onClick={handleGithubLogin} className="d-flex align-items-center google mt-3 mx-auto">
-  <i class="fa-brands fa-github m-3"></i>
-
-  Sign in with Github
-
-  </button>
+  
         </div>
+   </div>
+ </div>
     );
 };
 

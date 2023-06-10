@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assets/toy5.webp';
 import './Header.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthenticationContext } from '../Providers/AuthenticationProvider';
 
 const Header = () => {
+  const {user,logOut}=useContext(AuthenticationContext);
+  const navigate = useNavigate()
+  const from ='/login'
+  const handleLogout=()=>{
+    logOut().then(()=>navigate(from, { replace: true })).catch(error=>console.log(error))
+  }
+ 
     return (
         <nav class="navbar navbar-expand-lg bg navbar-dark ">
       <div className="container">
@@ -19,16 +27,37 @@ const Header = () => {
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto d-flex align-items-center">
             <li class="nav-item">
               <Link to='/'>Home</Link>
             </li>
             <li class="nav-item">
               <Link to='/blog'>Blog</Link>
             </li>
-            <li class="nav-item">
+            {
+              user?<> <li class="nav-item">
               <Link to='/addatoy'>Add A Toy</Link>
             </li>
+           
+            <li class="nav-item">
+              <Link to='/mytoys'>My Toys</Link>
+            </li>
+           
+            <li class="nav-item" onClick={handleLogout}>
+              <Link to='/logout'>Log Out</Link>
+            </li>
+            <li class="nav-item">
+              <img data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} className='ppic' src={user.photoURL} alt="" />
+            </li>
+            </>
+            : <li class="nav-item">
+            <Link to='/login'>Login</Link>
+          </li>
+            }
+           
+           
+           
+           
            
            
           </ul>

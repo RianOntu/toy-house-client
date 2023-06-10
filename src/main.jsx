@@ -10,6 +10,8 @@ import Home from './components/Home/Home.jsx';
 import SingleToyDetails from './components/SingleToyDetails/SingleToyDetails.jsx';
 import AddaToy from './components/AddaToy/AddaToy.jsx';
 import AuthenticationProvider from './components/Providers/AuthenticationProvider.jsx';
+import Register from './components/Register/Register.jsx';
+import Login from './components/Login/Login.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +30,15 @@ const router = createBrowserRouter([
       {
         path:"addatoy",
         element:<AddaToy></AddaToy>
+      },
+      {
+        path:'register',
+        element:<Register></Register>
+
+      },
+      {
+        path:"login",
+        element:<Login></Login>
       }
     ]
   },

@@ -3,6 +3,7 @@ import './Register.css';
 import { Link } from 'react-router-dom';
 import { AuthenticationContext, auth } from '../Providers/AuthenticationProvider';
 import { updateProfile } from 'firebase/auth';
+import registerimg from '../../assets/registration.webp';
 
 
 
@@ -53,7 +54,12 @@ const handleRegister=(event)=>{
 
 
     return (
-        <div className='formpage w-50 mx-auto mt-5'>
+   <div className="container">
+    <div className="row">
+        <div className="col-md-6 mt-5 mb-5">
+<img className='registerimg' src={registerimg} alt="" />
+        </div>
+    <div className='formpage w-50 mx-auto mt-5 mb-5 col-md-6'>
           <p className='text-danger text-center'>{error}</p>
           <p className='text-success text-center'>{success}</p>
             <h1 className='text-center'>Please Register</h1>
@@ -80,9 +86,11 @@ const handleRegister=(event)=>{
 
   <p>Already have an account?Please <Link className='register' to='/login'>Login</Link></p>
   
-  <button type="submit" class="btn btn-primary">Register</button>
+  <button type="submit" class="btn btn-danger">Register</button>
 </form>
         </div>
+    </div>
+   </div>
     );
 };
 
