@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import './AllToys.css';
 
@@ -10,15 +10,16 @@ const AllToys = () => {
         const form=event.target;
         const searchText=form.search.value;
         const url = `http://localhost:5000/toysbysearch?toyName=${searchText}`;
-        useEffect(() => {
+       
             fetch(url)
                 .then(res => res.json())
                 .then(data => setToys(data))
-        }, [url]);
+      
 
     }
     return (
         <div className='container mt-5 mb-5'>
+            <h1 className='mt-5 mb-5 text-center'>All Toys</h1>
             <form className='d-flex align-items-center justify-content-center' onSubmit={handleSearch}>
             <input className='search mt-5 mb-5' type="text" name="search" id="" placeholder='Search toys using toy name'/>
             <input className='btn btn-danger ml-2 searchbtn' type="submit" value="Search" />
