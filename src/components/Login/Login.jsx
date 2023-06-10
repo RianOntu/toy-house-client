@@ -25,8 +25,9 @@ const handleLogin=event=>{
     console.log(loggedInUser);
     form.reset();
     navigate(from, { replace: true })
-    setSuccess('Login Successful!')
     setError('')
+    setSuccess('Login Successful!')
+   
   }).catch(error=>setError(error.message))
 }
 
@@ -49,6 +50,7 @@ const handleGoogleSignIn=()=>{
           <p className='text-danger text-center'>{error}</p>
             <h1 className='text-center'>Please Login</h1>
             <form className='w-50 mx-auto' onSubmit={handleLogin}>
+               
   <div class="form-group mb-3">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" name='email' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required/>

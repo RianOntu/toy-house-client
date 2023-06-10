@@ -36,12 +36,12 @@ const handleRegister=(event)=>{
       displayName: name, photoURL: photo_url
     }).then(() => {
       setError('');
-      setSuccess('User has been registered successfully! Now please login')
+      setSuccess('User has been registered successfully!')
     }).catch((error) => {
       
     });
     console.log(newUser);
-  }).catch(error=>console.log(error))
+  }).catch(error=>setError(error.message))
   form.reset();
 
  
