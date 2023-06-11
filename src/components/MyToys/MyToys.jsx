@@ -6,9 +6,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const MyToys = () => {
     const notify = () => toast("Toy Deleted!");
-    const [myToys,setMyToys]=useState([])
+    const [myToys,setMyToys]=useState([]);
+    const [status,setStatus]=useState('');
     const {user}=useContext(AuthenticationContext);
     console.log(user);
+   
+   
     const url = `http://localhost:5000/mytoys?username=${user?.displayName}`;
 
     useEffect(()=>{
@@ -16,6 +19,17 @@ const MyToys = () => {
         .then(res => res.json())
         .then(data => setMyToys(data))
     },[])
+    const handleAscending = () => {
+        fetch(`${url}&status=asc`)
+          .then(res => res.json())
+          .then(data => setMyToys(data));
+      };
+      
+      const handleDescending = () => {
+        fetch(`${url}&status=desc`)
+          .then(res => res.json())
+          .then(data => setMyToys(data));
+      };
 
 const handleDelete=id=>{
     const proceed = confirm('Are You sure you want to delete?');
@@ -40,6 +54,12 @@ const handleDelete=id=>{
         <div className='container mt-5 mb-5'>
             <ToastContainer/>
         <h1 className='mt-5 mb-5 text-center'>My Toys</h1>
+        {
+            myToys.length>0?<div className="d-flex justify-content-end">
+            <button className='btn btn-danger mr-2' onClick={handleAscending}>Sort Ascending by price</button>
+            <button className='btn btn-danger' onClick={handleDescending}>Sort Descending by price</button>
+            </div>:""
+        }
     {
         myToys.length===0?<p className='text-center text-danger'>No toy yet.Please <Link to='/addatoy'>add a toy.</Link> </p> : 
         <table class="table">
