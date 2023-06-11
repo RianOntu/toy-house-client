@@ -3,6 +3,7 @@ import { AuthenticationContext } from '../Providers/AuthenticationProvider';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet';
 
 const MyToys = () => {
     const notify = () => toast("Toy Deleted!");
@@ -52,6 +53,9 @@ const handleDelete=id=>{
     
     return (
         <div className='container mt-5 mb-5'>
+            <Helmet>
+        <title>Toy House | My Toys</title>
+      </Helmet>
             <ToastContainer/>
         <h1 className='mt-5 mb-5 text-center'>My Toys</h1>
         {

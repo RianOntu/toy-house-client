@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import './AllToys.css';
+import { Helmet } from 'react-helmet';
 
 const AllToys = () => {
     const alltoys=useLoaderData();
@@ -19,6 +20,9 @@ const AllToys = () => {
     }
     return (
         <div className='container mt-5 mb-5'>
+           <Helmet>
+        <title>Toy House | All Toys</title>
+      </Helmet>
             <h1 className='mt-5 mb-5 text-center'>All Toys</h1>
             <form className='d-flex align-items-center justify-content-center' onSubmit={handleSearch}>
             <input className='search mt-5 mb-5' type="text" name="search" id="" placeholder='Search toys using toy name'/>

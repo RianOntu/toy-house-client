@@ -4,6 +4,7 @@ import bgImage from '../../assets/addatoy.jpg'
 import { AuthenticationContext } from '../Providers/AuthenticationProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet';
 
 const AddaToy = () => {
   const {user}=useContext(AuthenticationContext);
@@ -57,6 +58,9 @@ const AddaToy = () => {
   }
     return (
         <div className='addatoy'>
+          <Helmet>
+        <title>Toy House | Add A Toy</title>
+      </Helmet>
            <ToastContainer />
             <img className='bgimage' src={bgImage} alt="" />
     <div className="container">

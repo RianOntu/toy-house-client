@@ -1,8 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const Blog = () => {
     return (
         <div className='container mt-5 mb-5'>
+             <Helmet>
+        <title>Toy House | Blog</title>
+      </Helmet>
             <h1 className='mt-5 mb-5 text-center'>Blog</h1>
             <p><b>Question:</b>What is an access token and refresh token? How do they work and where should we store them on the client-side?</p>
             <p><b>Answer:</b>An access token is a credential that represents the authorization granted to a client application to access protected resources on behalf of a user. It is typically issued by an authentication server after the user has successfully authenticated and authorized the application.A refresh token is a long-lived credential that is used to obtain a new access token when the current one expires. It is securely issued alongside the access token during the initial authentication process.</p>
