@@ -66,6 +66,7 @@ const ShopByCategory = () => {
             <h1 className='text-center'>Shop By Category</h1>
 <Tabs>
             <Tabs>
+                <b><h4>Select a category:</h4></b>
                 <TabList>
                     {categories.map(category => (
                         <Tab key={category._id} onClick={() => handleSubCategories(category)}>
@@ -76,7 +77,7 @@ const ShopByCategory = () => {
                 </Tabs>
                 <Tabs>
                 
-                   
+                <b><h4>Select a Sub-category:</h4></b>
                         <TabList>
                         {
                             subcategories.map(subcategory=><Tab onClick={()=>handleSubcategory(subcategory)}>{subcategory.subcategoryName}</Tab>)
@@ -87,8 +88,9 @@ const ShopByCategory = () => {
                 </Tabs>
 
                 <TabPanel>
+
                   <div className='toys mt-5 mb-5'>
-                  {
+                  {     subcategory===null?<p className='text-danger text-center'>Please select a sub-category</p>:
                         toys&&toys.map(toy=><SingleToy key={toy.id} toy={toy}></SingleToy>)
                     }
                   </div>
