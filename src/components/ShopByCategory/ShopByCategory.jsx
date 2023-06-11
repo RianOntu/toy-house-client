@@ -15,7 +15,7 @@ const ShopByCategory = () => {
     
    
    
-        const url = `http://localhost:5000/toysbycategory?category=${category}`;
+        const url = `https://toy-house-server-rianontu.vercel.app/toysbycategory?category=${category}`;
         useEffect(() => {
             fetch(url)
                 .then(res => res.json())
@@ -28,7 +28,7 @@ const ShopByCategory = () => {
         }, [temporarytoys, subcategory]);
   
     useEffect(() => {
-        fetch(`http://localhost:5000/alltabtoys`)
+        fetch(`https://toy-house-server-rianontu.vercel.app/alltabtoys`)
             .then(res => res.json())
             .then(data => {
                 setCategories(data);

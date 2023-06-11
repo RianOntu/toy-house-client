@@ -18,6 +18,7 @@ import UpdateToy from './components/UpdateToy/UpdateToy.jsx';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 import AllToyDetails from './components/AllToyDetails/AllToyDetails.jsx';
 import Blog from './components/Blog/Blog.jsx';
+import NotFound from './components/NotFound/NotFound.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,13 +30,13 @@ const router = createBrowserRouter([
       },
       {
         path:"/toydetails/:id",
-        element:<SingleToyDetails></SingleToyDetails>,
-        loader:({params})=>fetch(`http://localhost:5000/toydetails/${params.id}`)
+        element:<PrivateRoute><SingleToyDetails></SingleToyDetails></PrivateRoute>,
+        loader:({params})=>fetch(`https://toy-house-server-rianontu.vercel.app/toydetails/${params.id}`)
 
       },
       {
         path:"addatoy",
-        element:<AddaToy></AddaToy>
+        element:<PrivateRoute><AddaToy></AddaToy></PrivateRoute>
       },
       {
         path:'register',
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
       {
         path:'alltoys',
         element:<AllToys></AllToys>,
-        loader:()=>fetch('http://localhost:5000/alltoys')
+        loader:()=>fetch('https://toy-house-server-rianontu.vercel.app/alltoys')
       },
       {
         path:"mytoys",
@@ -58,12 +59,12 @@ const router = createBrowserRouter([
       {
         path:'mytoys/update/:id',
         element:<UpdateToy></UpdateToy>,
-        loader:({params})=>fetch(`http://localhost:5000/update/${params.id}`)
+        loader:({params})=>fetch(`https://toy-house-server-rianontu.vercel.app/update/${params.id}`)
       },
       {
         path:'/alltoys/toy-details/:id',
-        element:<AllToyDetails></AllToyDetails>,
-        loader:({params})=>fetch(`http://localhost:5000/toy-details/${params.id}`)
+        element:<PrivateRoute><AllToyDetails></AllToyDetails></PrivateRoute>,
+        loader:({params})=>fetch(`https://toy-house-server-rianontu.vercel.app/toy-details/${params.id}`)
       },
       {
         path:'blog',
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path:'*',
+    element:<NotFound></NotFound>
+  }
 ]);
 
 

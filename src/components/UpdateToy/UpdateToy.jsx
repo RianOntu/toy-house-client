@@ -30,7 +30,7 @@ const handleUpdateToy = (id,event) => {
     const updatedToy={
         nameoftoy:nameoftoy,purloftoy:purloftoy,subcategory:subcategory,price:price,rating:rating,avquantity:avquantity,details:details,sellername:sellername,selleremail:selleremail
     }
-    fetch(`http://localhost:5000/update/${id}`, {
+    fetch(`https://toy-house-server-rianontu.vercel.app/update/${id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'

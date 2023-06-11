@@ -10,7 +10,7 @@ const AllToys = () => {
         event.preventDefault();
         const form=event.target;
         const searchText=form.search.value;
-        const url = `http://localhost:5000/toysbysearch?toyName=${searchText}`;
+        const url = `https://toy-house-server-rianontu.vercel.app/toysbysearch?toyName=${searchText}`;
        
             fetch(url)
                 .then(res => res.json())

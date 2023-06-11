@@ -13,7 +13,7 @@ const MyToys = () => {
     console.log(user);
    
    
-    const url = `http://localhost:5000/mytoys?username=${user?.displayName}`;
+    const url = `https://toy-house-server-rianontu.vercel.app/mytoys?username=${user?.displayName}`;
 
     useEffect(()=>{
         fetch(url)
@@ -35,7 +35,7 @@ const MyToys = () => {
 const handleDelete=id=>{
     const proceed = confirm('Are You sure you want to delete?');
     if (proceed) {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://toy-house-server-rianontu.vercel.app/delete/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
