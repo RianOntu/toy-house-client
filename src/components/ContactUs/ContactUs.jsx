@@ -4,7 +4,7 @@ const ContactUs = () => {
     return (
         <div className='container mt-5 mb-5'>
             <h1 className='text-center'>Let's Connect</h1>
-            <form className='w-25 mx-auto'>
+            <form className='w-50 mx-auto'>
            
   <div class="form-group">
     <label for="exampleInputEmail1">Your Email address</label>

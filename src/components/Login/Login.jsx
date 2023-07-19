@@ -45,11 +45,11 @@ const handleGoogleSignIn=()=>{
     <div className='col-md-6 mt-5 mb-5'>
          <img className='lock' src={loginimg} alt="" />
     </div>
-    <div className='formpage w-50 mx-auto mt-5 mb-5 col-md-6'>
+    <div className='formpage mx-auto mt-5 mb-5 col-md-6'>
           <p className='text-success text-center'>{success}</p>
           <p className='text-danger text-center'>{error}</p>
             <h1 className='text-center'>Please Login</h1>
-            <form className='w-50 mx-auto' onSubmit={handleLogin}>
+            <form className='w-50 mx-auto form' onSubmit={handleLogin}>
                
   <div class="form-group mb-3">
     <label for="exampleInputEmail1">Email address</label>

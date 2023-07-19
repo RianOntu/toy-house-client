@@ -65,7 +65,7 @@ const AddaToy = () => {
             <img className='bgimage' src={bgImage} alt="" />
     <div className="container">
         
-    <form className='w-25 addatoyform' onSubmit={handleAddtoy}>
+    <form className='w-50 addatoyform' onSubmit={handleAddtoy}>
     <h1 className='text-center'>Add A Toy</h1>
   <div class="form-group">
     <label for="exampleInputEmail1">Name of the toy</label>
