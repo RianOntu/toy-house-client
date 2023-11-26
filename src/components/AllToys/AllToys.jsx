@@ -4,30 +4,35 @@ import './AllToys.css';
 import { Helmet } from 'react-helmet';
 
 const AllToys = () => {
+  const [searchTerm, setSearchTerm] = useState('');
     const alltoys=useLoaderData();
+    console.log(alltoys);
     const [toys,setToys]=useState(alltoys);
-    const handleSearch=event=>{
-        event.preventDefault();
-        const form=event.target;
-        const searchText=form.search.value;
-        const url = `https://toy-house-server-rianontu.vercel.app/toysbysearch?toyName=${searchText}`;
-       
-            fetch(url)
-                .then(res => res.json())
-                .then(data => setToys(data))
-      
-
-    }
+    const filterData = (search) => {
+      const filteredData = alltoys.filter(
+        (d) =>
+          d.nameoftoy.toLowerCase().includes(search.toLowerCase()) 
+          
+      );
+      setToys(filteredData);
+    };
+  
+    const handleSearch = (event) => {
+      const { value } = event.target;
+      setSearchTerm(value);
+      filterData(value);
+    };
     return (
         <div className='container mt-5 mb-5'>
            <Helmet>
         <title>Toy House | All Toys</title>
       </Helmet>
             <h1 className='mt-5 mb-5 text-center'>All Toys</h1>
-            <form className='d-flex align-items-center justify-content-center' onSubmit={handleSearch}>
-            <input className='search mt-5 mb-5' type="text" name="search" id="" placeholder='Search toys using toy name'/>
-            <input className='btn btn-danger ml-2 searchbtn' type="submit" value="Search" />
-            </form>
+            
+            <input className='search mt-5 mb-5' type="text" name="search"  value={searchTerm}
+          onChange={handleSearch} id="" placeholder='Search toys using toy name'/>
+            
+           
             
             <table class="table">
   <thead>
